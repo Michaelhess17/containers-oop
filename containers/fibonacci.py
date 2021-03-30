@@ -73,7 +73,7 @@ class Fib:
         if self.n is not None:
             return f'Fib({self.n})'
         else:
-            return f'Fib()'
+            return 'Fib()'
 
 
 class FibIter:
