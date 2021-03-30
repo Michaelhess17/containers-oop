@@ -46,7 +46,7 @@ def range(a, b=None, c=None):
     if a > b:
         reverse = True
     i = a
-    if (b-a)/c < 0:
+    if (b - a) / c < 0:
         return []
     if not reverse:
         while i < b:
