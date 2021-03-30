@@ -1,8 +1,8 @@
 
-################################################################################
+###############################################################################
 # example fibonacci number code;
 # you do not have to modify this code in any way
-################################################################################
+###############################################################################
 
 
 def fibs(n):
@@ -46,10 +46,10 @@ def fib(n):
     return f2
 
 
-################################################################################
+###############################################################################
 # fibonacci number code using generators;
 # you will need to implement the functions below
-################################################################################
+###############################################################################
 
 
 class Fib:
@@ -64,19 +64,23 @@ class Fib:
         self.n = n
 
     def __iter__(self):
-        return FibIter(self.n)
+       if self.n is not None:
+            return FibIter(self.n - 1)
+        else:
+            return FibIter()
 
     def __repr__(self):
-        if self.n:
-            return 'Fib(' + str(self.n) + ')'
+        if self.n is not None:
+            return f'Fib({self.n})'
         else:
-            return 'Fib()'
+            return f'Fib()'
 
 
 class FibIter:
     '''
     This is the iterator helper class for the Fib class.
     '''
+<<<<<<< HEAD
     def __init__(self, n):
         self.n = n
         self.i = 0
@@ -102,23 +106,30 @@ class FibIter:
 
 def fib_yield(n=None):
     '''
-    This function returns a generator that computes the first n fibonacci numbers.
+    This function returns a generator that computes the
+    first n fibonacci numbers.
     If n is None, then the generator is infinite.
     '''
-    f0 = 1
-    f1 = 1
-    yield 1
-    if n == 1:
-        return
-    yield 1
-    if n == 2:
-        return
-    i = 3
-    while True:
-        f2 = f0 + f1
-        yield f2
-        f0 = f1
-        f1 = f2
-        i += 1
-        if n is not None and i > n:
-            return
+   if n is not None and n <= 2:
+        for _ in range(n):
+            yield 1
+    elif n is None:
+        for _ in range(2):
+            yield 1
+        while True:
+            f0 = 0
+            f1 = 1
+            i = 1
+            f2 = f1 + f0
+            f0 = f1
+            f1 = f2
+            yield f0
+    else:
+        f0 = 0
+        f1 = 1
+        i = 1
+        for i in range(n):
+            f2 = f1 + f0
+            f0 = f1
+            f1 = f2
+            yield f0
