@@ -36,7 +36,8 @@ class NormalizedStr:
         This functions converts the NormalizedStr into a regular string object.
         The output is similar, but not exactly the same, as the __repr__ function.
         '''
-        return str(self.text) 
+        return str(self.text)
+
     def __len__(self):
         '''
         Returns the length of the string.
@@ -61,7 +62,7 @@ class NormalizedStr:
         The expression `a[b]` desugars to `a.__getitem__(b)`.
         '''
         return self.text.__getitem__(index)
-    
+
     def lower(self):
         '''
         Returns a copy in the same normalized form, but lower case.
