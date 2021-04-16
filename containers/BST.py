@@ -59,6 +59,15 @@ class BST(BinaryTree):
         Convert the contents of both trees into a sorted list,
         then compare those sorted lists for equality.
         '''
+        list_t1 = self.to_list('inorder')
+        list_t2 = t2.to_list('inorder')
+        for x in list_t1:
+            if x not in list_t2:
+                return False
+        for x in list_t2:
+            if x not in list_t1:
+                return False
+        return True
 
     def is_bst_satisfied(self):
         '''
@@ -88,6 +97,8 @@ class BST(BinaryTree):
         methods just like this one.
         '''
         ret = True
+        if node is None:
+            return True
         if node.left:
             if node.value >= BST._find_largest(node.left):
                 ret &= BST._is_bst_satisfied(node.left)
@@ -287,7 +298,6 @@ class BST(BinaryTree):
     def remove_list(self, xs):
         '''
         Given a list xs, remove each element of xs from self.
-
         FIXME:
         Implement this function.
 
