@@ -7,10 +7,10 @@ The book's implementation is the traditional implementation because it has a fas
 This homework is using an explicit tree implementation to help you get more practice with OOP-style programming and classes.
 '''
 
-from containers.BinaryTree import BinaryTree, Node
+from containers.BinaryTree import BinaryTree
 
 
-class Heap():
+class Heap(BinaryTree):
     '''
     FIXME:
     Heap is currently not a subclass of BinaryTree.
@@ -24,6 +24,11 @@ class Heap():
         If xs is a list (i.e. xs is not None),
         then each element of xs needs to be inserted into the Heap.
         '''
+        super().__init__()
+        self.numel = 0
+        self.tree_list = [-9]
+        if xs is not None:
+            self.insert_list(list(xs))
 
     def __repr__(self):
         '''
@@ -39,7 +44,7 @@ class Heap():
         Using this expression ensures that all subclasses of Heap will have a correct implementation of __repr__,
         and that they won't have to reimplement it.
         '''
-        return type(self).__name__ + '(' + str(self.to_list('inorder')) + ')'
+        return type(self).__name__ + '(' + str(self.to_list('inorder')[1:]) + ')'
 
     def is_heap_satisfied(self):
         '''
@@ -59,6 +64,20 @@ class Heap():
         FIXME:
         Implement this method.
         '''
+        if node is None:
+            return True
+        ret = True
+        if node.left:
+            if node.left.value < node.value:
+                return False
+            else:
+                ret &= Heap._is_heap_satisfied(node.left)
+        if node.right:
+            if node.right.value < node.value:
+                return False
+            else:
+                ret &= Heap._is_heap_satisfied(node.right)
+        return ret
 
     def insert(self, value):
         '''
@@ -79,6 +98,46 @@ class Heap():
         Create a @staticmethod helper function,
         following the same pattern used in the BST and AVLTree insert functions.
         '''
+        self.numel += 1
+        binary = "{0:b}".format(self.numel)[1:]
+        self.tree_list.append(value)
+        self.do_swaps(binary)
+
+    def do_swaps(self, binary):
+        if binary == '':
+            return
+        if not self.is_heap_satisfied():
+            idx = int(binary)
+            idx_2 = int(binary[:-1])
+            if self.tree_list[idx] < self.tree_list[idx_2]:
+                tmp = self.tree_list[idx]
+                self.tree_list[idx] = self.tree_list[idx_2]
+                self.tree_list[idx_2] = tmp
+        if not self.is_heap_satisfied():
+            self.do_swaps(binary[:-1])
+
+    def do_down_swaps(self, binary):
+        if not self.is_heap_satisfied():
+            idx = int(binary)
+            while (idx * 2) <= self.numel:
+                mc = self.min_child(idx)
+                if self.tree_list[idx] > self.tree_list[mc]:
+                    tmp = self.heap_tree[idx]
+                    self.heap_tree[idx] = self.heap_tree[mc]
+                    self.heap_tree[mc] = tmp
+                idx = mc
+
+    def min_child(self, idx):
+        if idx * 2 + 1 > self.numel:
+            return idx * 2
+        else:
+            if self.tree_list[idx * 2] < self.tree_list[idx * 2 + 1]:
+                return idx * 2
+            else:
+                return idx * 2 + 1
+
+    def to_list(self, order):
+        return self.tree_list
 
     def insert_list(self, xs):
         '''
@@ -87,6 +146,8 @@ class Heap():
         FIXME:
         Implement this function.
         '''
+        for x in xs:
+            self.insert(x)
 
     def find_smallest(self):
         '''
@@ -95,6 +156,7 @@ class Heap():
         FIXME:
         Implement this function.
         '''
+        return min(self.tree_list[1:])
 
     def remove_min(self):
         '''
@@ -115,3 +177,10 @@ class Heap():
         It's possible to do it with only a single helper (or no helper at all),
         but I personally found dividing up the code into two made the most sense.
         '''
+        retval = self.find_smallest()
+        idx = self.tree_list.index(retval)
+        self.tree_list[idx] = self.tree_list[self.numel]
+        self.numel -= 1
+        self.tree_list.pop()
+        self.do_down_swaps(idx)
+        return retval
