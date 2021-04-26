@@ -4,7 +4,6 @@ The book implements Heaps using an *implicit* tree with an *explicit* vector imp
 so the code in the book is likely to be less helpful than the code for the other data structures.
 The book's implementation is the traditional implementation because it has a faster constant factor
 (but the same asymptotics).
-This homework is using an explicit tree implementation to help you get more practice with OOP-style programming and classes.
 '''
 
 from containers.BinaryTree import BinaryTree
