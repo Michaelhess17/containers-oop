@@ -26,7 +26,7 @@ class Heap(BinaryTree):
         '''
         super().__init__()
         self.numel = 0
-        self.tree_list = [-9]
+        self.tree_list = [float('-inf')]
         if xs is not None:
             self.insert_list(list(xs))
 
