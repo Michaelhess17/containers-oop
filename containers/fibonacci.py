@@ -79,24 +79,28 @@ class Fib:
 class FibIter:
     '''
     This is the iterator helper class for the Fib class.
-    '''
-    def __init__(self, n=None):
+    ''' 
+    def __init__(self, n):
         self.n = n
+        self.i = 0
         self.f0 = 1
         self.f1 = 1
-        self.ret = 0
-        self.i = 0
 
     def __next__(self):
-        if self.n is not None and self.n + 1 <= self.i:
+        if self.n is not None and self.i >= self.n:
             raise StopIteration
+        if self.i == 0:
+            self.i += 1
+            return 1
+        elif self.i == 1:
+            self.i += 1
+            return 1
         else:
-            tmp = self.f0
-            self.f2 = self.f1 + self.f0
+            self.i += 1
+            self.f2 = self.f0 + self.f1
             self.f0 = self.f1
             self.f1 = self.f2
-            self.i += 1
-            return tmp
+            return self.f2
 
 
 def fib_yield(n=None):

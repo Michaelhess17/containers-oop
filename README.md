@@ -2,6 +2,7 @@
 
 Build status:
 
-1. [![](https://github.com/michaelhess17/containers-oop/workflows/tests-fibonacci/badge.svg)](https://github.com/michaelhess17/containers-oop/actions?query=workflow%3Atests-fibonacci)
-1. [![](https://github.com/michaelhess17/containers-oop/workflows/tests-range/badge.svg)](https://github.com/michaelhess17/containers-oop/actions?query=workflow%3Atests-range)
-1. [![](https://github.com/michaelhess17/containers-oop/workflows/tests-unicode/badge.svg)](https://github.com/michaelhess17/containers-oop/actions?query=workflow%3Atests-unicode)
+[![tests-BinaryTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-binarytree.yml/badge.svg)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-binarytree.yml)
+[![tests-BST](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-BST.yml/badge.svg?branch=bst)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-BST.yml)
+[![tests-AVLTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-avltree.yml/badge.svg?branch=avltree)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-avltree.yml)
+[![tests-HeapTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-HeapTree.yml/badge.svg?branch=heap)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-HeapTree.yml)

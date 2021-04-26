@@ -1,4 +1,4 @@
-name: tests-fibonacci
+name: tests-BST
 on:
   push:
     branches: ['*']
@@ -23,7 +23,9 @@ jobs:
       - name: Run linter
         run: |
           pip3 install flake8 pep8-naming
-          flake8 containers/fibonacci.py --ignore=E501
+          flake8 containers/BST.py --ignore=E501
       - name: Run tests
         run: |
-          python -m pytest tests/test_fibonacci.py
+          python -m pytest tests/test_BST.py
+
+
