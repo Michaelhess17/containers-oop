@@ -1,4 +1,4 @@
-name: tests-Unicode
+name: tests-Range
 on:
   push:
     branches: ['*']
@@ -23,8 +23,8 @@ jobs:
       - name: Run linter
         run: |
           pip3 install flake8 pep8-naming
-          flake8 containers/unicode.py --ignore=E501
+          flake8 containers/range.py --ignore=E501
       - name: Run tests
         run: |
-          python -m pytest tests/test_unicode.py
+          python -m pytest tests/test_range.py
 

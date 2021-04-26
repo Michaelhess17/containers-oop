@@ -1,8 +1,10 @@
-# containers-oop
 
-Build status:
+This package was written as part of a homework assignment for CMC CSCI046: Data Structures and Algorithms. Use at your own risk!  
 
-[![tests-BinaryTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-binarytree.yml/badge.svg)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-binarytree.yml)
-[![tests-BST](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-BST.yml/badge.svg?branch=bst)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-BST.yml)
-[![tests-AVLTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-avltree.yml/badge.svg?branch=avltree)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-avltree.yml)
-[![tests-HeapTree](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-HeapTree.yml/badge.svg?branch=heap)](https://github.com/Michaelhess17/containers-oop/actions/workflows/tests-HeapTree.yml)
+The package implements multiple types of data structures, including the following:   
+
+- Generator objects (implemented with range and fibonacci)   
+- Binary Trees    
+- Binary Search Trees    
+- AVL Trees    
+- Heap Binary Trees   
